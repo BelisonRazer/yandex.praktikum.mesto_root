@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/BelisonRazer/yandex.praktikum.mesto_root/issues"
   },
-  "homepage": "https://github.com/BelisonRazer/yandex.praktikum.mesto_root#readme",
+  "homepage": "https://github.com/BelisonRazer/yandex.praktikum.mesto_root/",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",

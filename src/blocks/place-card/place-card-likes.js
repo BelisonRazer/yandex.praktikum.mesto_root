@@ -9,7 +9,7 @@ let url;
 if (NODE_ENV === 'production') {
 	url = 'https://praktikum.tk/cohort1';
 } else {
-	url = 'http://praktikum.tk/cohort1';
+	url = 'https://praktikum.tk/cohort1';
 }
 
 const api = new Api({
