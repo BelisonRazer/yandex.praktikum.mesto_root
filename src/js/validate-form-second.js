@@ -1,8 +1,14 @@
 "use strict";
 
+import FormButtonState from "../blocks/button/button";
+
+const formButtonState = FormButtonState();
+
 const formSecond = document.forms.second;
 const yourName = formSecond.elements.yourName;
 const aboutYou = formSecond.elements.aboutYou;
+
+const saveButton = document.querySelector('[name="savePopup"]');
 const submitEdit = document.querySelector('#submit');
 let isValidForm = true;
 
@@ -38,7 +44,7 @@ function validate(element) {
     return true;
 }
 
-function isInputLength(element) {
+export function isInputLength(element) {
     if (element.value.length >= 2 && element.value.length <= 30) {
         resetError(element);
         return true;
@@ -46,11 +52,11 @@ function isInputLength(element) {
     return false;
 }
 
-function activateError(element) {
+export function activateError(element) {
     element.parentNode.classList.add('popup__input-container-invalid');
 }
 
-function resetError(element) {
+export function resetError(element) {
     const errorElement = document.querySelector(`#error-${element.id}`);
 
     element.parentNode.classList.remove('popup__input-container-invalid');
@@ -58,7 +64,7 @@ function resetError(element) {
     element.classList.remove('err');
 }
 
-function sendForm(event) {
+export default function sendForm(event) {
     const inputs = Array.from(formSecond.elements);
 
     inputs.forEach((elem) => {

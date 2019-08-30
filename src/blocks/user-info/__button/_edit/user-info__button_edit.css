@@ -9,3 +9,9 @@
 
     /* margin-top: 6px; */
 }
+
+@media screen and (max-width: 980px) {
+    .button.user-info__button_edit {
+        margin-left: calc(50% - 38px / 2);
+    }
+}
