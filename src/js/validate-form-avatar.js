@@ -1,6 +1,17 @@
 "use strict";
 
+import {resetError} from "./validate-form-second";
+import {activateError} from "./validate-form-second";
+import {isInputLink} from "./validate-form-new";
+import FormButtonState from "../blocks/button/button";
+
+const formButtonState = FormButtonState();
+
+const formThird = document.forms.third;
+const linkThird = formThird.elements.linkAvatar;
+
 const submitAvatar = document.querySelector('#submit-avatar');
+const avaButton = document.querySelector('[name="send-avatar"]');
 let isValidFormThird = true;
 
 linkThird.addEventListener('input', handleValidateThird);
@@ -34,7 +45,7 @@ function validateNewThird(element) {
     return true;
 }
 
-function sendFormThird(event) {
+export default function sendFormThird(event) {
     const inputs = Array.from(formThird.elements);
 
     if (inputs[0]) {

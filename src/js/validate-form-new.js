@@ -1,8 +1,17 @@
 "use strict";
 
+import {resetError} from "./validate-form-second";
+import {activateError} from "./validate-form-second";
+import {isInputLength} from "./validate-form-second";
+import FormButtonState from "../blocks/button/button";
+
+const formButtonState = FormButtonState();
+
 const form = document.forms.new;
 const name = form.elements.name;
 const link = form.elements.link;
+
+const addButton = document.querySelector('[name="addPopup"]');
 const submitAdd = document.querySelector('#submit-add');
 let isValidFormNew = true;
 
@@ -67,7 +76,7 @@ function validateNewTwo(element) {
     return true;
 }
 
-function isInputLink(element) {
+export function isInputLink(element) {
     const reg = /(?:http[s]?\/\/)?(?:[\w\-]+(?::[\w\-]+)?@)?(?:[\w\-]+\.)+(?:[a-z]{2,4})(?::[0-9]+)?(?:\/[\w\-\.%]+)*(?:\?(?:[\w\-\.%]+=[\w\-\.%!]+&?)+)?(#\w+\-\.%!)?/;
 
     if (reg.test(element.value)) {
@@ -76,7 +85,7 @@ function isInputLink(element) {
     return false;
 }
 
-function sendFormNew(event) {
+export default function sendFormNew(event) {
     const inputs = Array.from(form.elements);
 
     if (inputs[0]) {

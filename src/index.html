@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+</head>
+<body>
+    <div class="root">
+        <header class="header root__section">
+            <img src="<%=require('./images/logo.svg')%>" alt="mesto logo" class="logo">
+        </header>
+        <div class="profile root__section">
+            <div class="user-info">
+                <div class="user-info__photo"></div>
+                <div class="user-info__data">
+                    <h1 class="user-info__name"></h1>
+                    <p class="user-info__job"></p>
+                    <button name="edit" class="button user-info__button user-info__button_edit">Edit</button>
+                </div>
+                <button name="add" class="button user-info__button">+</button>
+            </div>
+        </div>
+        <div class="places-list root__section">
+
+            <template class="template">
+                <div class="place-card">
+                    <div class="place-card__image">
+                        <button class="place-card__delete-icon"></button>
+                    </div>
+                    <div class="place-card__description">
+                        <h3 class="place-card__name"></h3>
+                        <div class="place-card__like-group">
+                            <button class="place-card__like-icon"></button>
+                            <p class="place-card__like-value"></p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+        </div>
+        <div class="popup popup-addCard">
+            <div class="popup__content">
+                <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close popup__close-add">
+                <h3 class="popup__title">Новое место</h3>
+                <form class="popup__form" name="new">
+                    <div class="popup__input-container">
+                        <input id="title" type="text" name="name" class="popup__input popup__input_type_name err"
+                            placeholder="Название">
+                        <span id="error-title" class="error error_title" aria-live="polite"></span>
+                    </div>
+                    <div class="popup__input-container">
+                        <input id="link" type="text" name="link" class="popup__input popup__input_type_link-url err"
+                            placeholder="Ссылка на картинку">
+                        <span id="error-link" class="error error_link" aria-live="polite"></span>
+                    </div>
+                    <button id="submit-add" name="addPopup" type="submit" class="button popup__button">+</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup-editProfile">
+            <div class="popup__content">
+                <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close popup__close-edit">
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <form class="popup__form" name="second">
+                    <div class="popup__input-container">
+                        <input id="name" required type="text" name="yourName"
+                            class="popup__input popup__input_type-yourName" placeholder="Имя">
+                        <span id="error-name" class="error error_name" aria-live="polite"></span>
+                    </div>
+                    <div class="popup__input-container">
+                        <input id="job" required type="text" name="aboutYou"
+                            class="popup__input popup__input_type-aboutYou" placeholder="О себе">
+                        <span id="error-job" class="error error_job" aria-live="polite"></span>
+                    </div>
+                    <button id="submit" name="savePopup" type="submit"
+                        class="button popup__button popup__button_edit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup-image">
+            <div class="popup__content popup__content_image">
+                <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close popup__close-img">
+                <div class="popup__image-box">
+
+                </div>
+            </div>
+        </div>
+        <div class="popup popup-avatar">
+            <div class="popup__content popup__content_avatar">
+                <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close popup__close-avatar">
+                <h3 class="popup__title">Обновить аватар</h3>
+                <form class="popup__form" name="third">
+                    <div class="popup__input-container">
+                        <input id="link-avatar" type="text" name="linkAvatar"
+                            class="popup__input popup__input_type_link-avatar err" placeholder="Ссылка на аватарку">
+                        <span id="error-link-avatar" class="error error_link-avatar" aria-live="polite"></span>
+                    </div>
+                    <button id="submit-avatar" name="send-avatar" type="submit"
+                        class="button popup__button popup__button_edit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+</html>
