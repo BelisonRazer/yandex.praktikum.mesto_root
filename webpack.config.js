@@ -23,22 +23,31 @@ const basicPlugins = [
 ];
 
 const prodPlugins = [
-    
+    new HtmlWebpackPlugin({
+        inject: false,
+        hash: true,
+        template: './src/index.html',
+        filename: 'index.html'
+    }),
+    new MiniCssExtractPlugin({
+        filename: 'style.[contenthash].min.css'
+    }),
+    new webpack.DefinePlugin({
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
+    new WebpackMd5Hash()
 ];
 
 module.exports = (env, options) => {
-    let mode = options.mode;
-    // console.log(mode);
+    let {mode} = options;
 
     return {
-
-
         entry: {
             main: './src/index.js'
         },
         output: {
             path: path.resolve(__dirname, 'dist'),
-            filename: '[name].[chunkhash].js'
+            filename: mode !== 'production' ? '[name].[chunkhash].js' : '[name].[chunkhash].min.js'
         },
         module: {
             rules: [{
@@ -79,6 +88,7 @@ module.exports = (env, options) => {
         optimization: {
             minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
         },
-        plugins: mode !== 'production' ? basicPlugins : basicPlugins.concat(prodPlugins)
+        plugins: mode !== 'production' ? basicPlugins : prodPlugins
+        // plugins: mode !== 'production' ? basicPlugins : basicPlugins.concat(prodPlugins)
     }
 };

@@ -9,5 +9,5 @@ https://belisonrazer.github.io/yandex.praktikum.mesto_root/
 
 Установка:
 Скачать проект
-В терминале - $ webpack install
-Далее - $ npm run build-dev / build-prod
+В терминале - $ npm install --> 
+Далее - $ npm run dev / build

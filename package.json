@@ -4,8 +4,8 @@
   "description": "Клиент-сервер реализация, с возможностью участникам добавлять изображения / удалять(только свои), лайкать",
   "main": "index.js",
   "scripts": {
-    "build-prod": "NODE_ENV=production rimraf dist && webpack --mode production --progress",
-    "build-dev": "NODE_ENV=development webpack-dev-server --mode development --open --watch",
+    "build": "NODE_ENV=production rimraf dist && webpack --mode production --progress",
+    "dev": "NODE_ENV=development webpack-dev-server --mode development --open --watch",
     "deploy": "gh-pages -d dist"
   },
   "repository": {

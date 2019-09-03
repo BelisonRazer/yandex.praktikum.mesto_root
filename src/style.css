@@ -11,6 +11,10 @@
 @import url(./blocks/popup/popup.css);
 @import url(./blocks/error/error.css);
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #000;
 }
