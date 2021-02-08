@@ -11,7 +11,8 @@
 > * Изменять личные данные своего профиля и аватару.
 
 ---
-### `gh-pages:` 
+### `gh-pages:`
+(сервер Яндекс.П. отключен)
 https://belisonrazer.github.io/yandex.praktikum.mesto_root/
 
 ---
